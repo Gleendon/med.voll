@@ -1,13 +1,9 @@
-package med.voll.api.endereco;
+package med.voll.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.medico.DadosAtualizarMedico;
-import med.voll.api.medico.DadosCadastroMedico;
-import med.voll.api.paciente.DadosCadastrarPaciente;
 
 @Embeddable
 @Getter
@@ -23,24 +19,14 @@ public class Endereco {
     private String numero;
     private String uf;
 
-    public Endereco(DadosCadastroMedico dados) {
-        this.logradouro = dados.endereco().logradouro();
-        this.bairro = dados.endereco().bairro();
-        this.cep = dados.endereco().cep();
-        this.cidade = dados.endereco().cidade();
-        this.complemento = dados.endereco().complemento();
-        this.numero = dados.endereco().numero();
-        this.uf = dados.endereco().uf();
-    }
-
-    public Endereco(DadosCadastrarPaciente dados) {
-        this.logradouro = dados.endereco().logradouro();
-        this.bairro = dados.endereco().bairro();
-        this.cep = dados.endereco().cep();
-        this.cidade = dados.endereco().cidade();
-        this.complemento = dados.endereco().complemento();
-        this.numero = dados.endereco().numero();
-        this.uf = dados.endereco().uf();
+    public Endereco(DadosEndereco dados) {
+        this.logradouro = dados.logradouro();
+        this.bairro = dados.bairro();
+        this.cep = dados.cep();
+        this.cidade = dados.cidade();
+        this.complemento = dados.complemento();
+        this.numero = dados.numero();
+        this.uf = dados.uf();
     }
 
     public void atualizarEndereco(DadosEndereco dados) {
